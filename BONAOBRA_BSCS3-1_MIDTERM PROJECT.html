@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aish Bonaobra | BSCS 3-1 Web Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Aish Bonaobra, a BS Computer Science student at Cavite State University learning web development with HTML, CSS and JavaScript.">
+  <meta name="author" content="Aish Bonaobra">
+  <meta name="theme-color" content="#23262f">
+  <meta property="og:title" content="Aish Bonaobra | Web Developer Portfolio">
+  <meta property="og:description" content="Projects, certificates and skills of a BSCS student.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+:root{
+  --bg:#f3f4f7; --surface:#fff; --ink:#23262f; --muted:#5d6270;
+  --accent:#2f7f72; --accent-ink:#fff; --line:#dfe2e8;
+  --fur:#23262f; --eye:#f2b632; --radius:18px;
+}
+[data-theme="dark"]{
+  --bg:#16181e; --surface:#1f232b; --ink:#eceef3; --muted:#a2a8b6;
+  --accent:#f2b632; --accent-ink:#16181e; --line:#2f3440;
+  --fur:#eceef3; --eye:#f2b632;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;transition:background .3s,color .3s}
+h1,h2,h3,.logo{font-family:'Fredoka','Nunito',sans-serif;font-weight:600;line-height:1.2}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+.nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem clamp(1rem,5vw,3rem);background:var(--bg);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:.5rem;color:var(--ink);text-decoration:none;font-size:1.3rem}
+.links{display:flex;gap:1.5rem;list-style:none;padding:0}
+.links a{color:var(--muted);text-decoration:none;font-weight:600}
+.links a:hover{color:var(--accent)}
+.nav-tools{display:flex;gap:.5rem}
+.icon-btn{background:var(--surface);border:1px solid var(--line);border-radius:50%;width:40px;height:40px;font-size:1.1rem;cursor:pointer;color:var(--ink)}
+.menu-btn{display:none}
+
+.hero,.section{max-width:1050px;margin:auto;padding:clamp(3rem,8vw,6rem) clamp(1rem,5vw,2rem)}
+.section h2{font-size:2rem;margin-bottom:1.5rem}
+.section h2.sub{margin-top:3rem}
+.section h3{margin:1.2rem 0 .5rem}
+.section p+p{margin-top:1rem}
+
+.hero{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;gap:2rem;min-height:80vh}
+.hero h1{font-size:clamp(2.2rem,6vw,3.6rem);margin-bottom:.6rem}
+.role{color:var(--accent);font-weight:700;margin-bottom:1rem}
+.hero-text p{max-width:52ch}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:.7rem 1.4rem;border-radius:999px;border:2px solid var(--accent);font:700 1rem 'Nunito',sans-serif;text-decoration:none;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--accent)}
+
+
+.cat{max-width:340px;justify-self:center;width:100%}
+.fur{fill:var(--fur)}
+.ear{fill:var(--accent);opacity:.55}
+.eye{fill:var(--eye)}
+.pupil{fill:#16181e}
+.nose{fill:var(--accent)}
+.line{fill:none;stroke:var(--bg);stroke-width:3;stroke-linecap:round}
+.cat .eye-wrap{transform-origin:120px 104px;animation:blink 5s infinite}
+@keyframes blink{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.08)}}
+
+.about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0}
+.chips li{background:var(--surface);border:1px solid var(--line);padding:.25rem .9rem;border-radius:999px;font-weight:600;font-size:.95rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;display:flex;flex-direction:column;gap:.6rem}
+.card .tech{color:var(--muted);font-size:.9rem}
+.card a{margin-top:auto;font-weight:700}
+.certs{list-style:none;padding:0;display:grid;gap:.8rem}
+.certs li{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.3rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.9rem 1.2rem}
+.certs span{color:var(--muted)}
+
+.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;margin-top:1.5rem}
+.form{display:grid;gap:.4rem}
+.form label{font-weight:700;margin-top:.6rem}
+.form input,.form textarea{font:inherit;padding:.7rem 1rem;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink)}
+.form .btn{margin-top:1rem;justify-self:start}
+.social{list-style:none;padding:0;display:grid;gap:.6rem;align-content:start}
+.social a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.8rem 1.2rem;font-weight:700;text-decoration:none}
+.social a:hover{border-color:var(--accent)}
+
+.footer{text-align:center;padding:2rem 1rem;color:var(--muted);border-top:1px solid var(--line);font-size:.9rem}
+
+@media (max-width:760px){
+  .menu-btn{display:block}
+  .links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line)}
+  .links.open{display:flex}
+  .links a{display:block;padding:.9rem 1.5rem}
+  .hero,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  .cat{order:-1;max-width:240px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+  <header class="nav">
+    <a class="logo" href="#home" aria-label="Aish, go to top">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path d="M4 4l7 5h10l7-5v13a12 10 0 0 1-24 0z" fill="currentColor"/></svg>
+      Aish
+    </a>
+    <nav aria-label="Main">
+      <ul class="links" id="links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects &amp; Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-tools">
+      <button id="theme" class="icon-btn" aria-label="Switch to dark mode">🌙</button>
+      <button id="menu" class="icon-btn menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="links">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>Hi, I'm Aish Bonaobra.</h1>
+        <p class="role">BSCS 3-1 &middot; Web developer</p>
+        <p>This website was made for academic purposes, The goal of this site is to showcase my projects, skills, and experience in web development in a simple and effective way.</p>
+        <div class="actions">
+          <a class="btn" href="#projects">See my work</a>
+          <a class="btn ghost" href="#contact">Say hello</a>
+        </div>
+      </div>
+
+      <div class="cat" id="cat" role="img" aria-label="A cat whose eyes follow your cursor">
+        <svg viewBox="0 0 240 220" width="100%">
+          <path class="fur" d="M30 20l52 38h76l52-38v100a90 80 0 0 1-180 0z"/>
+          <path class="ear" d="M44 46l24 18-24 14zM196 46l-24 18 24 14z"/>
+          <g class="eye-wrap">
+            <ellipse class="eye" cx="86" cy="104" rx="19" ry="21"/>
+            <ellipse class="eye" cx="154" cy="104" rx="19" ry="21"/>
+            <ellipse class="pupil" id="pupilL" cx="86" cy="104" rx="6" ry="15"/>
+            <ellipse class="pupil" id="pupilR" cx="154" cy="104" rx="6" ry="15"/>
+          </g>
+          <path class="nose" d="M112 134h16l-8 9z"/>
+          <path class="line" d="M120 143v8M120 151c-7 8-17 6-20 0M120 151c7 8 17 6 20 0"/>
+          <path class="line" d="M62 140l-40-6M62 150l-40 6M178 140l40-6M178 150l40 6"/>
+        </svg>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About me</h2>
+      <div class="about-grid">
+        <div>
+          <p>I'm a Bachelor of Science in Computer Science student at Cavite State University, Bacoor City Campus. I started with web development because I like seeing my code turn into something people can open and use.</p>
+          <p>This portfolio is built with plain HTML, CSS and JavaScript.</p>
+        </div>
+        <div>
+          <h3>Skills</h3>
+          <ul class="chips">
+            <li>HTML</li><li>CSS</li><li>Flexbox &amp; Grid</li><li>Responsive design</li><li>Git &amp; GitHub</li><li>VS Code</li>
+          </ul>
+          <h3>Currently learning</h3>
+          <p>Advanced JavaScript, accessibility and building small full projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>hangmeow</h3>
+          <p>A cat-themed hangman word game. Guess the word before the cat runs out of lives.</p>
+          <p class="tech">HTML &middot; CSS &middot; JavaScript</p>
+          <a href="#" target="_blank" rel="noopener">View project</a>
+        </article>
+        <article class="card">
+          <h3>Personal Portfolio</h3>
+          <p>This website. Responsive, with a dark mode toggle and a cat that follows your cursor.</p>
+          <p class="tech">HTML &middot; CSS &middot; JavaScript</p>
+          <a href="#home">View site</a>
+        </article>
+        <article class="card">
+          <h3>Next project</h3>
+          <p>A new project goes here. Describe what it does and what you learned.</p>
+          <p class="tech">Add your tools</p>
+          <a href="#" target="_blank" rel="noopener">View project</a>
+        </article>
+      </div>
+
+      <h2 class="sub">Certificates</h2>
+      <ul class="certs">
+        <li><strong>as of now i will leave it blank</strong><span>2026</span></li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Want to work together or just say hi? Send a message and I'll reply soon.</p>
+      <div class="contact-grid">
+        <form class="form" action="mailto:youremail@example.com" method="post" enctype="text/plain">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required autocomplete="name">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="4" required></textarea>
+          <button class="btn" type="submit">Send message</button>
+        </form>
+        <ul class="social">
+          <li><a href="mailto:aish.bonaobra@cvsu.edu.ph">Email</a></li>
+          <li><a href="https://www.facebook.com/share/1DztduGBLb/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://github.com/aishwash" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Aish.</p>
+  </footer>
+
+  <script>
+// Dark mode toggle (remembers your choice)
+const root = document.documentElement;
+const themeBtn = document.getElementById('theme');
+
+function setTheme(mode) {
+  root.dataset.theme = mode;
+  themeBtn.textContent = mode === 'dark' ? '☀️' : '🌙';
+  themeBtn.setAttribute('aria-label', mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  try { localStorage.setItem('theme', mode); } catch (e) {}
+}
+let saved = null;
+try { saved = localStorage.getItem('theme'); } catch (e) {}
+setTheme(saved || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+themeBtn.addEventListener('click', () => setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
+
+// Mobile menu
+const menuBtn = document.getElementById('menu');
+const links = document.getElementById('links');
+menuBtn.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', open);
+});
+links.addEventListener('click', e => {
+  if (e.target.tagName === 'A') { links.classList.remove('open'); menuBtn.setAttribute('aria-expanded', false); }
+});
+
+// Cat eyes follow the cursor
+const cat = document.getElementById('cat');
+const pupils = [
+  { el: document.getElementById('pupilL'), x: 86 },
+  { el: document.getElementById('pupilR'), x: 154 }
+];
+document.addEventListener('mousemove', e => {
+  const r = cat.getBoundingClientRect();
+  const dx = e.clientX - (r.left + r.width / 2);
+  const dy = e.clientY - (r.top + r.height / 2);
+  const d = Math.hypot(dx, dy) || 1;
+  const mx = (dx / d) * Math.min(d / 25, 8);
+  const my = (dy / d) * Math.min(d / 25, 6);
+  pupils.forEach(p => {
+    p.el.setAttribute('cx', p.x + mx);
+    p.el.setAttribute('cy', 104 + my);
+  });
+});
+</script>
+</body>
+</html>
